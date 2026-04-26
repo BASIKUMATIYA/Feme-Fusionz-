@@ -21,7 +21,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
+import { toJpeg } from 'html-to-image';
 import { cn } from './lib/utils';
 
 // --- Types ---
@@ -402,107 +402,23 @@ export default function App() {
     setIsGenerating(true);
     try {
       const element = reportRef.current;
-      if (!element) return;
       
-      // html2canvas 1.4.1 struggles with Tailwind 4's oklch/oklab colors.
-      // We use a highly isolated onclone callback to ensure No oklch/oklab values reach the parser.
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: false,
-        allowTaint: true,
-        logging: false,
+      // html-to-image is much more robust with modern CSS (oklch/oklab) and safer against fetch errors
+      const dataUrl = await toJpeg(element, { 
+        quality: 0.95, 
         backgroundColor: '#ffffff',
-        width: element.offsetWidth,
-        height: element.offsetHeight,
-        onclone: (clonedDoc) => {
-          // 1. Remove all external and internal stylesheets completely
-          const styles = clonedDoc.querySelectorAll('style, link[rel="stylesheet"]');
-          styles.forEach(s => s.remove());
-
-          const reportEl = clonedDoc.getElementById('report-section');
-          if (!reportEl) return;
-
-          // 2. Recursively strip inline styles that might contain oklch/oklab
-          const allElements = reportEl.getElementsByTagName('*');
-          for (let i = 0; i < allElements.length; i++) {
-            const el = allElements[i] as HTMLElement;
-            if (el.style && el.style.cssText) {
-              // If inline style has oklch or oklab, we clear it to let inherited hex safely take over
-              if (el.style.cssText.includes('okl')) {
-                el.style.cssText = ''; 
-              }
-            }
-          }
-
-          // 3. Inject a completely standalone, legacy-compatible CSS
-          const style = clonedDoc.createElement('style');
-          style.innerHTML = `
-            * {
-              margin: 0; padding: 0; box-sizing: border-box !important;
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
-              -webkit-print-color-adjust: exact !important;
-              color-adjust: exact !important;
-            }
-            #report-section {
-              background: white !important;
-              color: #1e293b !important;
-              padding: 50px !important;
-              width: 800px !important;
-            }
-            .text-pink-600 { color: #db2777 !important; }
-            .bg-pink-600 { background-color: #db2777 !important; }
-            .bg-pink-50 { background-color: #fdf2f8 !important; }
-            .text-slate-900 { color: #0f172a !important; }
-            .text-slate-700 { color: #334155 !important; }
-            .bg-slate-900 { background-color: #0f172a !important; }
-            .border-pink-500 { border-color: #db2777 !important; }
-            .border-pink-100 { border-color: #fce7f3 !important; }
-            
-            /* Structural Helpers */
-            .grid { display: block !important; }
-            .flex { display: flex !important; }
-            .items-center { align-items: center !important; }
-            .justify-between { justify-content: space-between !important; }
-            .gap-4 { gap: 16px !important; }
-            .rounded-3xl { border-radius: 24px !important; }
-            .p-8 { padding: 32px !important; }
-            
-            /* Indicators & Numbers */
-            .w-16.h-16 { 
-              width: 50px !important; 
-              height: 50px !important; 
-              background: #db2777 !important; 
-              color: white !important; 
-              display: flex !important; 
-              align-items: center !important; 
-              justify-content: center !important; 
-              font-weight: 900 !important; 
-              border-radius: 50% !important;
-            }
-
-            /* Animations and Shadows cleanup */
-            .animate-fade-in { animation: none !important; opacity: 1 !important; }
-            .shadow-lg, .shadow-xl, .shadow-2xl { border: 1px solid #fce7f3 !important; box-shadow: none !important; }
-          `;
-          clonedDoc.head.appendChild(style);
-
-          // 4. Branding Header
-          const header = clonedDoc.createElement('div');
-          header.style.cssText = 'padding-bottom: 30px; border-bottom: 4px solid #db2777; margin-bottom: 40px;';
-          header.innerHTML = `
-            <h1 style="font-size: 32px; font-weight: 900; color: #db2777; margin: 0;">FEME'FUSIONZ</h1>
-            <p style="font-size: 12px; color: #64748b; font-weight: 700; margin: 0; text-transform: uppercase;">Confidence • Empathy • Performance Assessment</p>
-          `;
-          reportEl.insertBefore(header, reportEl.firstChild);
-          
-          // 5. Cleanup
-          clonedReport.querySelectorAll('button').forEach(b => b.remove());
+        style: {
+          borderRadius: '0',
+          boxShadow: 'none',
+          transform: 'none',
         }
       });
       
-      const imgData = canvas.toDataURL('image/jpeg', 0.95);
       const imgWidth = 210; 
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      // Create a temporary instance to measure image properties
+      const tempPdf = new jsPDF();
+      const imgProps = tempPdf.getImageProperties(dataUrl);
+      const imgHeight = (Number(imgProps.height) * imgWidth) / Number(imgProps.width);
       
       const pdf = new jsPDF({
         orientation: 'p',
@@ -510,7 +426,7 @@ export default function App() {
         format: [imgWidth, imgHeight]
       });
       
-      pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight, undefined, 'FAST');
+      pdf.addImage(dataUrl, 'JPEG', 0, 0, imgWidth, imgHeight, undefined, 'FAST');
       pdf.save(`FemeFusionz_Report_${personalInfo.fullName.replace(/\s+/g, '_') || 'User'}.pdf`);
     } catch (error: any) {
       console.error("PDF Export failed:", error);
@@ -534,7 +450,7 @@ export default function App() {
     });
 
     const totalPossible: number = QUESTIONS.length;
-    const totalActual: number = Object.values(answers).reduce((a: number, b: number) => a + b, 0);
+    const totalActual: number = (Object.values(answers) as number[]).reduce((a: number, b: number) => a + b, 0);
     const overallPercent = Math.round((totalActual / totalPossible) * 100);
     const overallLabel = overallPercent >= 80 ? 'Excellent' : overallPercent >= 50 ? 'Good' : 'Fair';
 

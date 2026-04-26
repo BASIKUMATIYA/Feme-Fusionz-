@@ -4,7 +4,7 @@
 @theme {
   --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Explicit Hex Colors to avoid html2canvas oklab/oklch errors */
+  /* Explicit Hex Colors for maximum compatibility with PDF/Image export tools */
   --color-primary: #db2777;
   --color-primary-600: #db2777;
   --color-primary-500: #ec4899;
