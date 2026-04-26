@@ -242,71 +242,71 @@ const IDEAS: Record<Category, string[]> = {
 const ProgressBar = ({ currentStep, totalSteps }: { currentStep: number; totalSteps: number }) => {
   const progress = (currentStep / totalSteps) * 100;
   return (
-    <div className="w-full bg-pink-50 rounded-full h-4 mb-12 border border-pink-100 p-0.5">
+    <div className="w-full bg-pink-50 rounded-full h-3 md:h-4 mb-8 md:mb-12 border border-pink-100 p-0.5">
       <motion.div 
         className="h-full bg-pink-600 rounded-full shadow-sm"
         initial={{ width: 0 }}
         animate={{ width: `${progress}%` }}
         transition={{ duration: 0.5 }}
       />
-      <div className="flex justify-between mt-3 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+      <div className="flex justify-between mt-3 text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest">
         <span>Phase {currentStep} of {totalSteps}</span>
-        <span>{Math.round(progress)}% Journey Complete</span>
+        <span>{Math.round(progress)}% Complete</span>
       </div>
     </div>
   );
 };
 
 const Header = () => (
-  <header className="bg-white border-b-4 border-pink-500 py-6 px-12 shadow-sm text-center shrink-0 w-full z-20">
+  <header className="bg-white border-b-4 border-pink-500 py-4 md:py-6 px-4 md:px-12 shadow-sm text-center shrink-0 w-full z-20">
     <div className="max-w-4xl mx-auto flex flex-col items-center">
-      <h1 className="text-2xl md:text-3xl font-black tracking-tight text-pink-600 uppercase">
-        THE POWER LEADER SELF ASSESSMENT RESULT
+      <h1 className="text-xl md:text-3xl font-black tracking-tight text-pink-600 uppercase">
+        POWER LEADER ASSESSMENT
       </h1>
     </div>
   </header>
 );
 
 const Footer = () => (
-  <footer className="bg-slate-900 text-white py-12 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 shrink-0 w-full mt-auto">
+  <footer className="bg-slate-900 text-white py-10 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 shrink-0 w-full mt-auto">
     <div className="text-center md:text-left flex flex-col gap-1">
       <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
         <img 
           src="https://i.ibb.co/VcZ1Ftqs/femefusionz-logo.png" 
           alt="Feme'Fusionz Logo" 
-          className="w-10 h-10 object-contain bg-white rounded-full p-1 border-2 border-pink-500"
+          className="w-8 h-8 md:w-10 md:h-10 object-contain bg-white rounded-full p-1 border-2 border-pink-500"
         />
-        <p className="text-2xl font-bold tracking-tighter italic text-white">Feme'Fusionz</p>
+        <p className="text-xl md:text-2xl font-bold tracking-tighter italic text-white">Feme'Fusionz</p>
       </div>
-      <p className="text-[12px] text-slate-400 uppercase tracking-widest font-bold">
+      <p className="text-[10px] md:text-[12px] text-slate-400 uppercase tracking-widest font-bold">
         ©2026 All Rights Reserved 
       </p>
     </div>
 
-    <div className="flex flex-wrap justify-center gap-6 items-center">
+    <div className="flex flex-wrap justify-center gap-4 md:gap-6 items-center">
       <a 
         href="https://chat.whatsapp.com/BrcS9yrX9dw5M2GWcE703p?mode=gi_t" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+        className="w-12 h-12 md:w-14 md:h-14 bg-green-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
       >
-        <MessageCircle size={32} stroke="white" strokeWidth={2.5} />
+        <MessageCircle size={28} md:size={32} stroke="white" strokeWidth={2.5} className="w-7 h-7 md:w-8 md:h-8" />
       </a>
       <a 
         href="https://www.facebook.com/share/18fprSxwnq/" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+        className="w-12 h-12 md:w-14 md:h-14 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
       >
-        <Facebook size={32} fill="white" stroke="none" />
+        <Facebook size={28} md:size={32} fill="white" stroke="none" className="w-7 h-7 md:w-8 md:h-8" />
       </a>
       <a 
         href="https://www.instagram.com/femefusionz?utm_source=qr&igsh=MXdiY201ajJzM3N6Ng==" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="w-14 h-14 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+        className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
       >
-        <Instagram size={32} stroke="white" strokeWidth={2.5} />
+        <Instagram size={28} md:size={32} stroke="white" strokeWidth={2.5} className="w-7 h-7 md:w-8 md:h-8" />
       </a>
     </div>
   </footer>
@@ -463,53 +463,55 @@ export default function App() {
     return (
       <div className="min-h-screen bg-pink-50 flex flex-col">
         <Header />
-        <div className="max-w-5xl mx-auto px-4 py-12 flex-grow w-full">
-          <div id="report-section" ref={reportRef} className="bg-white rounded-[40px] shadow-2xl border-2 border-pink-100 flex flex-col items-center justify-between p-8 md:p-14 relative overflow-hidden h-auto min-h-[800px]">
+        <div className="max-w-5xl mx-auto px-4 py-8 md:py-12 flex-grow w-full">
+          <div id="report-section" ref={reportRef} className="bg-white rounded-[2rem] md:rounded-[40px] shadow-2xl border-2 border-pink-100 flex flex-col items-center justify-between p-6 md:p-14 relative overflow-hidden h-auto min-h-[800px]">
             
             {/* Decorative Background Elements */}
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-pink-200 rounded-full opacity-30 pointer-events-none"></div>
             <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-yellow-200 rounded-full opacity-40 pointer-events-none"></div>
 
-            <div className="w-full text-center z-10 mb-10">
-              <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-full text-center z-10 mb-8 md:mb-10">
+              <div className="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
                 <img 
                   src="https://i.ibb.co/VcZ1Ftqs/femefusionz-logo.png" 
                   alt="Feme'Fusionz Logo" 
-                  className="w-16 h-16 object-contain bg-white rounded-full p-1 border-2 border-pink-500"
+                  className="w-10 h-10 md:w-16 md:h-16 object-contain bg-white rounded-full p-1 border-2 border-pink-500"
                 />
-                <h1 className="text-4xl font-black text-pink-600 tracking-tight">Feme'Fusionz</h1>
+                <h1 className="text-2xl md:text-4xl font-black text-pink-600 tracking-tight">Feme'Fusionz</h1>
               </div>
-              <span className="px-6 py-2 bg-pink-600 text-white rounded-full text-sm font-black uppercase tracking-widest mb-6 inline-block shadow-lg">
+              <span className="px-4 md:px-6 py-1.5 md:py-2 bg-pink-600 text-white rounded-full text-[10px] md:text-sm font-black uppercase tracking-widest mb-4 md:mb-6 inline-block shadow-lg">
                 Your Assessment Journey
               </span>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tighter">Growth & Awareness Report</h2>
-              <p className="text-slate-500 font-bold italic text-lg decoration-pink-500/30 underline underline-offset-4 decoration-4">Confidence. Empathy. Unstoppable Momentum.</p>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-3 md:mb-4 uppercase tracking-tighter">Growth & Awareness Report</h2>
+              <p className="text-slate-500 font-bold italic text-sm md:text-lg decoration-pink-500/30 underline underline-offset-4 decoration-2 md:decoration-4">Confidence. Empathy. Unstoppable Momentum.</p>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-6 w-full px-4 md:px-8 z-10 mb-12">
-              <div className="flex-1 bg-pink-50 rounded-[2.5rem] p-8 border-b-8 border-pink-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
-                <span className="text-5xl font-black text-pink-600">{results.overallPercent}%</span>
-                <span className="text-xs font-black text-slate-400 uppercase tracking-widest mt-2">Overall Score</span>
+            <div className="flex flex-col md:flex-row gap-4 md:gap-6 w-full px-0 md:px-8 z-10 mb-10 md:mb-12">
+              <div className="flex-1 bg-pink-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-pink-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
+                <span className="text-3xl md:text-5xl font-black text-pink-600">{results.overallPercent}%</span>
+                <span className="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-widest mt-1 md:mt-2">Overall Score</span>
               </div>
-              <div className="flex-1 bg-yellow-50 rounded-[2.5rem] p-8 border-b-8 border-yellow-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
-                <span className="text-5xl font-black text-yellow-600">{results.overallLabel}</span>
-                <span className="text-xs font-black text-slate-400 uppercase tracking-widest mt-2">Final Archetype</span>
+              <div className="flex-1 bg-yellow-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-yellow-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
+                <span className="text-3xl md:text-5xl font-black text-yellow-600">{results.overallLabel}</span>
+                <span className="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-widest mt-1 md:mt-2">Final Archetype</span>
               </div>
-              <div className="flex-1 bg-blue-50 rounded-[2.5rem] p-8 border-b-8 border-blue-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
-                <span className="text-5xl font-black text-blue-600">{Object.keys(answers).length}/{QUESTIONS.length}</span>
-                <span className="text-xs font-black text-slate-400 uppercase tracking-widest mt-2">Focus Areas</span>
+              <div className="flex-1 bg-blue-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-blue-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
+                <span className="text-3xl md:text-5xl font-black text-blue-600">{Object.keys(answers).length}/{QUESTIONS.length}</span>
+                <span className="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-widest mt-1 md:mt-2">Focus Areas</span>
               </div>
             </div>
 
-            <div className="w-full z-10 space-y-20 px-4 md:px-8">
+            <div className="w-full z-10 space-y-12 md:space-y-20 px-0 md:px-8">
               {/* Report content */}
-              <div className="mb-12 animate-fade-in text-center max-w-3xl mx-auto">
-                <h3 className="text-3xl font-black text-slate-800 mb-6 uppercase tracking-tight">Personalized Analysis for {personalInfo.fullName}</h3>
-                <p className="text-slate-600 leading-relaxed text-xl font-medium mb-8">
+              <div className="animate-fade-in text-center max-w-3xl mx-auto">
+                <h3 className="text-2xl md:text-3xl font-black text-slate-800 mb-4 md:mb-6 uppercase tracking-tight">Personalized Analysis for {personalInfo.fullName}</h3>
+                <p className="text-slate-600 leading-relaxed text-base md:text-xl font-medium mb-4 md:mb-8">
                   As your Feme'Fusionz coach, I've analyzed your responses based on our core values: 
-                  <span className="text-pink-600 font-black px-2">Growth</span>, 
-                  <span className="text-yellow-600 font-black px-2">Connection</span>, and 
-                  <span className="text-blue-600 font-black px-2">Authenticity</span>.
+                  <span className="text-pink-600 font-black px-1 md:px-2 block md:inline">Growth</span>
+                  <span className="hidden md:inline">, </span>
+                  <span className="text-yellow-600 font-black px-1 md:px-2 block md:inline">Connection</span>
+                  <span className="hidden md:inline">, and </span>
+                  <span className="text-blue-600 font-black px-1 md:px-2 block md:inline">Authenticity</span>.
                 </p>
               </div>
 
@@ -527,13 +529,13 @@ export default function App() {
                   }[catId as Category];
 
                   return (
-                    <section key={catId} className={cn("p-10 rounded-[3rem] border-b-8 shadow-sm transition-all hover:shadow-md", colors.bg, colors.border)}>
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+                    <section key={catId} className={cn("p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border-b-4 md:border-b-8 shadow-sm transition-all hover:shadow-md", colors.bg, colors.border)}>
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6 mb-8 md:mb-10">
                         <div>
-                          <h4 className="text-3xl font-black text-slate-900 tracking-tighter uppercase">{title}</h4>
-                          <p className="text-slate-500 font-bold italic tracking-tight">{subtitle}</p>
+                          <h4 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter uppercase">{title}</h4>
+                          <p className="text-slate-500 font-bold italic tracking-tight text-sm md:text-base">{subtitle}</p>
                         </div>
-                        <div className={cn("px-8 py-3 rounded-2xl font-black text-xl shadow-lg border-2 border-white", 
+                        <div className={cn("px-6 md:px-8 py-2 md:py-3 rounded-xl md:rounded-2xl font-black text-lg md:text-xl shadow-lg border-2 border-white text-center", 
                           score.label === 'Excellent' ? 'bg-green-500 text-white' : 
                           score.label === 'Good' ? 'bg-amber-500 text-white' : 'bg-rose-500 text-white'
                         )}>
@@ -541,12 +543,12 @@ export default function App() {
                         </div>
                       </div>
 
-                      <div className="space-y-10">
-                        <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-inner border border-white/50">
-                          <h5 className={cn("text-lg font-black uppercase tracking-widest mb-4 flex items-center gap-3", colors.text)}>
+                      <div className="space-y-8 md:space-y-10">
+                        <div className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl shadow-inner border border-white/50">
+                          <h5 className={cn("text-sm md:text-lg font-black uppercase tracking-widest mb-3 md:mb-4 flex items-center gap-3", colors.text)}>
                             Analysis Insight
                           </h5>
-                          <p className="text-slate-700 leading-relaxed text-lg font-medium">
+                          <p className="text-slate-700 leading-relaxed text-base md:text-lg font-medium">
                             {score.label === 'Excellent' 
                               ? `Incredible mastery! You've built a bulletproof internal system for ${title.toLowerCase()}. Your ability to remain centered while growing is exactly what a Power Leader embodies.`
                               : score.label === 'Good'
@@ -557,18 +559,18 @@ export default function App() {
                         </div>
 
                         <div>
-                          <h5 className={cn("text-lg font-black uppercase tracking-widest mb-6 flex items-center gap-3", colors.text)}>
+                          <h5 className={cn("text-sm md:text-lg font-black uppercase tracking-widest mb-4 md:mb-6 flex items-center gap-3", colors.text)}>
                             20 Radical Growth Actions
                           </h5>
-                          <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                             {IDEAS[catId as Category].map((idea, idx) => (
-                              <div key={idx} className="flex gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 group hover:border-pink-300 transition-all hover:translate-x-1">
-                                <span className={cn("flex-shrink-0 w-8 h-8 rounded-full text-white text-xs flex items-center justify-center font-black", 
+                              <div key={idx} className="flex gap-3 md:gap-4 bg-white p-3 md:p-4 rounded-xl md:rounded-2xl shadow-sm border border-slate-100 group hover:border-pink-300 transition-all hover:translate-x-1">
+                                <span className={cn("flex-shrink-0 w-6 h-6 md:w-8 md:h-8 rounded-full text-white text-[10px] md:text-xs flex items-center justify-center font-black", 
                                   idx < 5 ? colors.text.replace('text-', 'bg-') : 'bg-slate-300'
                                 )}>
                                   {idx + 1}
                                 </span>
-                                <span className="text-[13px] text-slate-700 font-bold leading-snug">{idea}</span>
+                                <span className="text-[11px] md:text-[13px] text-slate-700 font-bold leading-snug">{idea}</span>
                               </div>
                             ))}
                           </div>
@@ -628,7 +630,7 @@ export default function App() {
       <Header />
       
       <main id="assessment-main-content" className="flex-grow max-w-5xl mx-auto w-full px-4 py-12">
-        <div id="assessment-card" className="bg-white rounded-[40px] shadow-2xl border-2 border-pink-100 flex flex-col items-center justify-between p-10 relative overflow-hidden min-h-[70vh]">
+        <div id="assessment-card" className="bg-white rounded-[2rem] md:rounded-[40px] shadow-2xl border-2 border-pink-100 flex flex-col items-center justify-between p-6 md:p-10 relative overflow-hidden min-h-[70vh]">
           {/* Decorative Background Elements */}
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-pink-200 rounded-full opacity-30 pointer-events-none"></div>
           <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-yellow-200 rounded-full opacity-40 pointer-events-none"></div>
@@ -644,70 +646,70 @@ export default function App() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="space-y-8"
+                className="space-y-6 md:space-y-8 w-full"
               >
-                <div className="border-b-4 border-pink-500/20 pb-4 mb-8">
-                  <h3 className="text-3xl font-black text-slate-900 flex items-center gap-4 uppercase tracking-tighter">
-                    <Users className="text-pink-600" size={32} /> Personal Intelligence
+                <div className="border-b-4 border-pink-500/20 pb-4 mb-6 md:mb-8">
+                  <h3 className="text-xl md:text-3xl font-black text-slate-900 flex items-center gap-3 md:gap-4 uppercase tracking-tighter">
+                    <Users className="text-pink-600 w-6 h-6 md:w-8 md:h-8" /> Personal Intelligence
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Name *</label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                  <div className="space-y-2 md:space-y-3">
+                    <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Name *</label>
                     <input 
                       type="text" 
                       name="fullName"
                       value={personalInfo.fullName}
                       onChange={handlePersonalChange}
-                      className="w-full px-6 py-5 bg-pink-50/50 border-2 border-pink-100 rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold"
+                      className="w-full px-5 md:px-6 py-4 md:py-5 bg-pink-50/50 border-2 border-pink-100 rounded-xl md:rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold text-sm md:text-base"
                       placeholder="Jane Doe"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Mobile Number *</label>
+                  <div className="space-y-2 md:space-y-3">
+                    <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Mobile Number *</label>
                     <input 
                       type="tel" 
                       name="mobile"
                       value={personalInfo.mobile}
                       onChange={handlePersonalChange}
-                      className="w-full px-6 py-5 bg-pink-50/50 border-2 border-pink-100 rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold"
+                      className="w-full px-5 md:px-6 py-4 md:py-5 bg-pink-50/50 border-2 border-pink-100 rounded-xl md:rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold text-sm md:text-base"
                       placeholder="+91 98765 43210"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Email Address *</label>
+                  <div className="space-y-2 md:space-y-3">
+                    <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Email Address *</label>
                     <input 
                       type="email" 
                       name="email"
                       value={personalInfo.email}
                       onChange={handlePersonalChange}
-                      className="w-full px-6 py-5 bg-pink-50/50 border-2 border-pink-100 rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold"
+                      className="w-full px-5 md:px-6 py-4 md:py-5 bg-pink-50/50 border-2 border-pink-100 rounded-xl md:rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold text-sm md:text-base"
                       placeholder="jane@example.com"
                     />
                   </div>
-                  <div className="space-y-3">
-                    <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">City</label>
+                  <div className="space-y-2 md:space-y-3">
+                    <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">City</label>
                     <input 
                       type="text" 
                       name="city"
                       value={personalInfo.city}
                       onChange={handlePersonalChange}
-                      className="w-full px-6 py-5 bg-pink-50/50 border-2 border-pink-100 rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold"
+                      className="w-full px-5 md:px-6 py-4 md:py-5 bg-pink-50/50 border-2 border-pink-100 rounded-xl md:rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold text-sm md:text-base"
                       placeholder="Mumbai"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-5">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest block ml-1">Marital Status *</label>
-                  <div className="flex flex-wrap gap-4">
+                <div className="space-y-4 md:space-y-5">
+                  <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest block ml-1">Marital Status *</label>
+                  <div className="flex flex-wrap gap-2 md:gap-4">
                     {['Single', 'Married', 'Divorced', 'Other'].map(status => (
                       <button
                         key={status}
                         onClick={() => setPersonalInfo({ ...personalInfo, maritalStatus: status })}
                         className={cn(
-                          "px-8 py-4 rounded-2xl font-black uppercase tracking-tighter border-2 transition-all shadow-sm",
+                          "flex-1 md:flex-none px-4 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-black uppercase tracking-tighter border-2 transition-all shadow-sm text-xs md:text-sm whitespace-nowrap",
                           personalInfo.maritalStatus === status 
                             ? "bg-pink-600 text-white border-pink-600 shadow-pink-200 transform scale-105" 
                             : "bg-white text-slate-400 border-slate-100 hover:border-pink-300"
@@ -720,17 +722,17 @@ export default function App() {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-sm font-semibold text-slate-600 block ml-1">Which of the following best describes you? *</label>
-                  <div className="flex flex-wrap gap-3">
-                    {['Homemaker', 'Homepreneur', 'Entrepreneur', 'Studying', 'Women Professional', 'Other'].map(desc => (
+                  <label className="text-[10px] md:text-sm font-black md:font-semibold text-slate-400 md:text-slate-600 uppercase md:normal-case tracking-widest md:tracking-normal block ml-1">Which best describes you? *</label>
+                  <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 md:gap-3">
+                    {['Homemaker', 'Homepreneur', 'Entrepreneur', 'Studying', 'Professional', 'Other'].map(desc => (
                       <button
                         key={desc}
                         onClick={() => setPersonalInfo({ ...personalInfo, description: desc })}
                         className={cn(
-                          "px-6 py-3 rounded-xl font-medium border-2 transition-all",
+                          "px-4 md:px-6 py-3 rounded-lg md:rounded-xl font-bold md:font-medium border-2 transition-all text-xs md:text-sm",
                           personalInfo.description === desc 
-                            ? "bg-primary text-white border-primary shadow-lg scale-105" 
-                            : "bg-white text-slate-500 border-slate-200 hover:border-primary/50"
+                            ? "bg-pink-600 text-white border-pink-600 shadow-lg scale-105" 
+                            : "bg-white text-slate-500 border-slate-100 hover:border-pink-300"
                         )}
                       >
                         {desc}
@@ -859,15 +861,15 @@ export default function App() {
                   </h3>
                 </div>
 
-                <div className="space-y-10">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest block text-center">Unassisted Capacity for Achievement? *</label>
-                  <div className="flex justify-center gap-6">
+                <div className="space-y-4 md:space-y-10">
+                  <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest block text-center">Unassisted Capacity for Achievement? *</label>
+                  <div className="flex justify-center gap-3 md:gap-6">
                     {[1, 2, 3, 4, 5].map(val => (
                       <button
                         key={val}
                         onClick={() => setCommunityState({ ...communityState, confidenceLevel: val.toString() })}
                         className={cn(
-                          "w-16 h-16 rounded-3xl font-black text-2xl border-4 transition-all flex items-center justify-center shadow-md",
+                          "w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl font-black text-xl md:text-2xl border-4 transition-all flex items-center justify-center shadow-md",
                           communityState.confidenceLevel === val.toString()
                             ? "bg-pink-600 text-white border-pink-200 shadow-pink-200 transform scale-110 -rotate-3"
                             : "bg-white text-slate-300 border-slate-50 hover:border-pink-200"
@@ -877,7 +879,7 @@ export default function App() {
                       </button>
                     ))}
                   </div>
-                  <div className="flex justify-between max-w-sm mx-auto text-[10px] font-black text-slate-300 uppercase tracking-[0.3em]">
+                  <div className="flex justify-between w-full max-w-sm mx-auto text-[8px] md:text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] md:tracking-[0.3em]">
                     <span>Minimum</span>
                     <span>Absolute</span>
                   </div>
@@ -953,43 +955,43 @@ export default function App() {
 
                   return catsToRender.map(cat => (
                     <div key={cat} className="space-y-8 animate-fade-in">
-                      <div className="border-b-4 border-pink-500/20 pb-6 mb-8">
-                        <h4 className="text-3xl font-black text-slate-900 flex items-center gap-4 uppercase tracking-tighter">
-                          {cat === 'selfReflection' && <Sparkles className="text-pink-600" size={32} />}
-                          {cat === 'selfAuthentic' && <Sparkles className="text-yellow-600" size={32} />}
-                          {cat === 'conflict' && <MessageSquare className="text-blue-600" size={32} />}
-                          {cat === 'friendship' && <Users className="text-purple-600" size={32} />}
-                          {cat === 'relationship' && <Heart className="text-rose-600" size={32} />}
-                          {cat === 'spouse' && <Heart className="text-orange-600 fill-current" size={32} />}
+                      <div className="border-b-4 border-pink-500/20 pb-4 md:pb-6 mb-6 md:mb-8">
+                        <h4 className="text-xl md:text-3xl font-black text-slate-900 flex items-center gap-3 md:gap-4 uppercase tracking-tighter">
+                          {cat === 'selfReflection' && <Sparkles className="text-pink-600 w-6 h-6 md:w-8 md:h-8" />}
+                          {cat === 'selfAuthentic' && <Sparkles className="text-yellow-600 w-6 h-6 md:w-8 md:h-8" />}
+                          {cat === 'conflict' && <MessageSquare className="text-blue-600 w-6 h-6 md:w-8 md:h-8" />}
+                          {cat === 'friendship' && <Users className="text-purple-600 w-6 h-6 md:w-8 md:h-8" />}
+                          {cat === 'relationship' && <Heart className="text-rose-600 w-6 h-6 md:w-8 md:h-8" />}
+                          {cat === 'spouse' && <Heart className="text-orange-600 fill-current w-6 h-6 md:w-8 md:h-8" />}
                           {CATEGORIES[cat].title}
                         </h4>
-                        <p className="text-slate-400 font-bold italic tracking-tight">{CATEGORIES[cat].subtitle}</p>
+                        <p className="text-slate-400 font-bold italic tracking-tight text-xs md:text-base">{CATEGORIES[cat].subtitle}</p>
                       </div>
 
-                      <div className="grid grid-cols-1 gap-6">
+                      <div className="grid grid-cols-1 gap-4 md:gap-6">
                         {QUESTIONS.filter(q => q.category === cat).map((q, idx) => (
-                          <div key={q.id} className="p-8 bg-white rounded-[2.5rem] border-2 border-slate-50 shadow-sm hover:border-pink-200 transition-all group overflow-hidden relative">
+                          <div key={q.id} className="p-6 md:p-8 bg-white rounded-[1.5rem] md:rounded-[2.5rem] border-2 border-slate-50 shadow-sm hover:border-pink-200 transition-all group overflow-hidden relative">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-pink-50 rounded-full -mr-16 -mt-16 opacity-0 group-hover:opacity-40 transition-opacity pointer-events-none"></div>
-                            <p className="text-slate-800 font-black text-lg mb-6 flex gap-4 uppercase tracking-tight">
+                            <p className="text-slate-800 font-black text-base md:text-lg mb-4 md:mb-6 flex gap-3 md:gap-4 uppercase tracking-tight">
                               <span className="text-pink-600/30 font-black">{idx + 1}</span>
                               {q.text}
                             </p>
-                            <div className="flex gap-4 relative z-10">
+                            <div className="flex gap-3 md:gap-4 relative z-10">
                               <button
                                 onClick={() => handleAnswer(q.id, 1)}
                                 className={cn(
-                                  "flex-1 py-4 rounded-2xl font-black uppercase tracking-widest transition-all flex items-center justify-center gap-3 border-2 shadow-sm",
+                                  "flex-1 py-3 md:py-4 rounded-xl md:rounded-2xl font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 md:gap-3 border-2 shadow-sm text-[10px] md:text-sm",
                                   answers[q.id] === 1
                                     ? "bg-pink-600 text-white border-pink-600 shadow-pink-100 transform -rotate-1"
                                     : "bg-white text-slate-400 border-slate-50 hover:border-pink-300"
                                 )}
                               >
-                                {answers[q.id] === 1 && <CheckCircle2 size={24} strokeWidth={3} />} Affirmative
+                                {answers[q.id] === 1 && <CheckCircle2 className="w-4 h-4 md:w-6 md:h-6" strokeWidth={3} />} Affirmative
                               </button>
                               <button
                                 onClick={() => handleAnswer(q.id, 0)}
                                 className={cn(
-                                  "flex-1 py-4 rounded-2xl font-black uppercase tracking-widest transition-all flex items-center justify-center border-2 shadow-sm",
+                                  "flex-1 py-3 md:py-4 rounded-xl md:rounded-2xl font-black uppercase tracking-widest transition-all flex items-center justify-center border-2 shadow-sm text-[10px] md:text-sm",
                                   answers[q.id] === 0
                                     ? "bg-slate-800 text-white border-slate-800 shadow-slate-100 transform rotate-1"
                                     : "bg-white text-slate-400 border-slate-50 hover:border-slate-800"
@@ -1008,30 +1010,30 @@ export default function App() {
             )}
           </AnimatePresence>
 
-          <nav className="mt-16 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10 w-full">
+          <nav className="mt-8 md:mt-16 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 relative z-10 w-full">
             {step > 1 && (
               <button 
                 onClick={prevStep}
-                className="flex items-center gap-2 px-10 py-5 bg-slate-100 text-slate-600 rounded-2xl font-black uppercase tracking-widest hover:bg-slate-200 transition-all w-full md:w-auto"
+                className="flex items-center justify-center gap-2 px-6 md:px-10 py-4 md:py-5 bg-slate-100 text-slate-600 rounded-xl md:rounded-2xl font-black uppercase tracking-widest hover:bg-slate-200 transition-all w-full md:w-auto text-sm md:text-base"
               >
-                <ChevronLeft size={24} strokeWidth={3} /> Return
+                <ChevronLeft size={20} md:size={24} strokeWidth={3} /> Return
               </button>
             )}
-            <div className="flex-grow" />
+            <div className="hidden md:block flex-grow" />
             {step < 7 ? (
               <button 
                 onClick={nextStep}
-                className="group bg-pink-600 hover:bg-pink-700 text-white font-black py-5 px-14 rounded-2xl shadow-xl transform active:scale-95 flex items-center justify-center gap-4 transition-all w-full md:w-auto text-lg uppercase tracking-widest"
+                className="group bg-pink-600 hover:bg-pink-700 text-white font-black py-4 md:py-5 px-10 md:px-14 rounded-xl md:rounded-2xl shadow-xl transform active:scale-95 flex items-center justify-center gap-3 md:gap-4 transition-all w-full md:w-auto text-base md:text-lg uppercase tracking-widest"
               >
-                Advance Process <ChevronRight size={24} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
+                Advance Process <ChevronRight size={20} md:size={24} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
               </button>
             ) : (
               <button 
                 onClick={handleSubmit}
                 disabled={isGenerating}
-                className="group bg-pink-600 hover:bg-pink-700 text-white font-black py-6 px-16 rounded-[2rem] shadow-2xl transform active:scale-95 flex items-center justify-center gap-4 transition-all w-full md:w-auto text-xl uppercase tracking-widest"
+                className="group bg-pink-600 hover:bg-pink-700 text-white font-black py-5 md:py-6 px-10 md:px-16 rounded-[1.5rem] md:rounded-[2rem] shadow-2xl transform active:scale-95 flex items-center justify-center gap-3 md:gap-4 transition-all w-full md:w-auto text-lg md:text-xl uppercase tracking-widest"
               >
-                {isGenerating ? "PROCESSING..." : <>SYNTHESIZE RESULTS <Sparkles size={24} /></>}
+                {isGenerating ? "PROCESSING..." : <>SYNTHESIZE RESULTS <Sparkles size={20} md:size={24} /></>}
               </button>
             )}
           </nav>
