@@ -45,61 +45,60 @@ interface Question {
 const CATEGORIES: Record<Category, { title: string; subtitle: string }> = {
   selfReflection: { title: 'Self Reflection Awareness', subtitle: 'Dealing with Guilt and Resentment' },
   selfAuthentic: { title: 'Self Authentic Awareness', subtitle: 'Living Your Truth' },
-  conflict: { title: 'Conflict Awareness', subtitle: 'Transforming Disagreements' },
+  conflict: { title: 'Conflicts Awareness', subtitle: 'Transforming Disagreements' },
   friendship: { title: 'Friendship Awareness', subtitle: 'Nurturing Meaningful Connections' },
-  relationship: { title: 'Relationship Awareness', subtitle: 'Self-Expression and Intimacy' },
+  relationship: { title: 'Relationships Awareness', subtitle: 'Self-Expression and Intimacy' },
   spouse: { title: 'Relationship with Spouse/Partner', subtitle: 'Deepening Your Partnership' },
 };
 
 const QUESTIONS: Question[] = [
-  // Self Reflection
+  // Self Reflection Awareness
   { id: 'guilt-process', category: 'selfReflection', text: 'I can identify and process feelings of guilt in a constructive way.' },
   { id: 'release-resentment', category: 'selfReflection', text: 'I actively work towards releasing resentment towards others.' },
   { id: 'root-causes', category: 'selfReflection', text: 'I seek to understand the root causes of my guilt and resentment.' },
-  { id: 'practice-forgiveness', category: 'selfReflection', text: 'I practice forgiveness towards myself to heal from past hurts.' },
-  { id: 'letting-go', category: 'selfReflection', text: 'I believe letting go of guilt and resentment improves my emotional well-being.' },
+  { id: 'practice-forgiveness', category: 'selfReflection', text: 'I practice forgiveness, towards myself to heal from past hurts.' },
+  { id: 'well-being', category: 'selfReflection', text: 'I believe letting go of guilt and resentment improves my emotional well-being.' },
   { id: 'share-feelings', category: 'selfReflection', text: 'I allow myself to share my true feelings with those I\'m close to.' },
   { id: 'emotional-support', category: 'selfReflection', text: 'I believe in the healing power of emotional support and empathy.' },
   { id: 'mutual-respect', category: 'selfReflection', text: 'I recognize the role of mutual respect in fostering intimacy.' },
-  { id: 'learning-growing', category: 'selfReflection', text: 'I am open to learning and growing through my intimate relationships.' },
+  { id: 'open-learning', category: 'selfReflection', text: 'I am open to learning and growing through my intimate relationships.' },
   { id: 'building-trust', category: 'selfReflection', text: 'I prioritize building trust as the foundation of intimate relationships.' },
   
-  // Self Authentic
+  // Self Authentic Awareness
   { id: 'relationships-enrich', category: 'selfAuthentic', text: 'I feel my relationships with others enrich and positively impact my life.' },
-  { id: 'healthy-boundaries', category: 'selfAuthentic', text: 'I find it easy to set healthy boundaries in my relationships.' },
+  { id: 'set-boundaries', category: 'selfAuthentic', text: 'I find it easy to set healthy boundaries in my relationships.' },
   { id: 'feel-understood', category: 'selfAuthentic', text: 'I often feel understood and appreciated by the people close to me.' },
-  { id: 'express-gratitude', category: 'selfAuthentic', text: 'I regularly express appreciation and gratitude towards my friends and family.' },
+  { id: 'express-appreciation', category: 'selfAuthentic', text: 'I regularly express appreciation and gratitude towards my friends and family.' },
   { id: 'authentic-self', category: 'selfAuthentic', text: 'I am comfortable being my authentic self around others.' },
-  { id: 'know-authentic', category: 'selfAuthentic', text: 'I know my authentic self.' },
   
-  // Conflict
-  { id: 'conflicts-opportunity', category: 'conflict', text: 'I approach conflicts in my relationships as opportunities for deeper understanding.' },
+  // Conflicts Awareness
+  { id: 'approach-conflicts', category: 'conflict', text: 'I approach conflicts in my relationships as opportunities for deeper understanding.' },
   { id: 'navigate-disagreements', category: 'conflict', text: 'I feel confident in my ability to navigate disagreements with compassion and empathy.' },
   { id: 'understand-perspective', category: 'conflict', text: 'I make an effort to understand the other person\'s perspective in a conflict.' },
   { id: 'maintain-relationship', category: 'conflict', text: 'I prioritize maintaining the relationship over "winning" an argument.' },
-  { id: 'repair-relationship', category: 'conflict', text: 'After a conflict, I take steps to repair and strengthen the relationship.' },
-  { id: 'willing-effort', category: 'conflict', text: 'I am willing to take effort to resolve conflicts because relationships matter.' },
+  { id: 'repair-strengthen', category: 'conflict', text: 'After a conflict, I take steps to repair and strengthen the relationship.' },
+  { id: 'resolve-effort', category: 'conflict', text: 'I believe in taking the effort to resolve conflicts even when I feel I am not wrong.' },
   
-  // Friendship
-  { id: 'mutual-support', category: 'friendship', text: 'I have friendships that provide mutual support and understanding.' },
+  // Friendship Awareness
+  { id: 'friendship-support', category: 'friendship', text: 'I have friendships that provide mutual support and understanding.' },
   { id: 'trust-friends', category: 'friendship', text: 'I trust my friends and feel trusted in return.' },
   { id: 'encourage-best', category: 'friendship', text: 'My friends encourage me to be my best self.' },
   { id: 'sense-belonging', category: 'friendship', text: 'I feel a sense of belonging and inclusion within my circle of friends.' },
   { id: 'discuss-vulnerabilities', category: 'friendship', text: 'I am comfortable discussing my vulnerabilities with my friends.' },
   
-  // Relationship
+  // Relationships Awareness
   { id: 'explore-sexuality', category: 'relationship', text: 'I feel empowered to explore and understand my own sexuality.' },
-  { id: 'discuss-wellbeing', category: 'relationship', text: 'I believe it\'s important to openly discuss sexual well-being and health.' },
+  { id: 'discuss-wellness', category: 'relationship', text: 'I believe it\'s important to openly discuss sexual well-being and health.' },
   { id: 'respect-body', category: 'relationship', text: 'I respect my body\'s needs and signals, making choices that honor them.' },
   { id: 'embrace-desires', category: 'relationship', text: 'I am learning to embrace my desires without guilt or shame.' },
   { id: 'consent-priority', category: 'relationship', text: 'Conversations about consent are a priority in my relationships.' },
   
-  // Spouse
-  { id: 'emotional-connected', category: 'spouse', text: 'I feel emotionally connected and intimate with my spouse/partner.' },
-  { id: 'communicate-needs', category: 'spouse', text: 'My spouse/partner and I effectively communicate our needs and feelings.' },
+  // Relationship with Spouse/Partner
+  { id: 'emotionally-connected', category: 'spouse', text: 'I feel emotionally connected and intimate with my spouse/partner.' },
+  { id: 'effectively-communicate', category: 'spouse', text: 'My spouse/partner and I effectively communicate our needs and feelings.' },
   { id: 'physical-intimacy', category: 'spouse', text: 'I am satisfied with the level of physical intimacy in my relationship.' },
-  { id: 'supported-goals', category: 'spouse', text: 'I feel supported by my spouse/partner in pursuing my personal goals.' },
-  { id: 'resolve-conflicts', category: 'spouse', text: 'My spouse/partner and I can resolve conflicts in a healthy and constructive way.' },
+  { id: 'pursuing-goals', category: 'spouse', text: 'I feel supported by my spouse/partner in pursuing my personal goals.' },
+  { id: 'resolve-conflicts-healthy', category: 'spouse', text: 'My spouse/partner and I can resolve conflicts in a healthy and constructive way.' },
 ];
 
 const IDEAS: Record<Category, string[]> = {
@@ -260,9 +259,17 @@ const ProgressBar = ({ currentStep, totalSteps }: { currentStep: number; totalSt
 const Header = () => (
   <header className="bg-white border-b-4 border-pink-500 py-4 md:py-6 px-4 md:px-12 shadow-sm text-center shrink-0 w-full z-20">
     <div className="max-w-4xl mx-auto flex flex-col items-center">
+      <img 
+        src="https://i.ibb.co/VcZ1Ftqs/femefusionz-logo.png" 
+        alt="Feme'Fusionz Logo" 
+        className="w-12 h-12 md:w-16 md:h-16 object-contain mb-3"
+      />
       <h1 className="text-xl md:text-3xl font-black tracking-tight text-pink-600 uppercase">
-        POWER LEADER ASSESSMENT
+        SELF AWARENESS ASSESSMENT TEST
       </h1>
+      <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-1">
+        An eye opening survey to know yourself better and depth from 360°
+      </p>
     </div>
   </header>
 );
@@ -327,6 +334,7 @@ export default function App() {
     city: '',
     maritalStatus: '',
     description: '',
+    otherDescription: '',
     membershipDuration: '',
   });
 
@@ -360,7 +368,7 @@ export default function App() {
 
   const validateStep = () => {
     if (step === 1) {
-      return personalInfo.fullName && personalInfo.mobile && personalInfo.email && personalInfo.maritalStatus && personalInfo.description && personalInfo.membershipDuration;
+      return personalInfo.fullName && personalInfo.mobile && personalInfo.email && personalInfo.maritalStatus && personalInfo.description && (personalInfo.description !== 'Other' || personalInfo.otherDescription) && personalInfo.membershipDuration;
     }
     if (step === 2) {
       return motivationState.motivation && motivationState.goals && (motivationState.challenges.length > 0 || motivationState.otherChallenge) && (motivationState.learningPreferences.length > 0 || motivationState.otherLearning);
@@ -479,7 +487,10 @@ export default function App() {
                 />
                 <h1 className="text-2xl md:text-4xl font-black text-pink-600 tracking-tight">Feme'Fusionz</h1>
               </div>
-              <span className="px-4 md:px-6 py-1.5 md:py-2 bg-pink-600 text-white rounded-full text-[10px] md:text-sm font-black uppercase tracking-widest mb-4 md:mb-6 inline-block shadow-lg">
+              <span 
+                className="px-4 md:px-6 py-1.5 md:py-2 bg-pink-600 text-white rounded-full text-[10px] md:text-sm font-black uppercase tracking-widest mb-4 md:mb-6 inline-block shadow-lg"
+                style={{ backgroundColor: '#db2777' }}
+              >
                 Your Assessment Journey
               </span>
               <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-3 md:mb-4 uppercase tracking-tighter">Growth & Awareness Report</h2>
@@ -487,16 +498,16 @@ export default function App() {
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 w-full px-0 md:px-8 z-10 mb-10 md:mb-12">
-              <div className="flex-1 bg-pink-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-pink-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
-                <span className="text-3xl md:text-5xl font-black text-pink-600">{results.overallPercent}%</span>
+              <div className="flex-1 bg-pink-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-pink-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm" style={{ backgroundColor: '#fdf2f8' }}>
+                <span className="text-3xl md:text-5xl font-black text-pink-600" style={{ color: '#db2777' }}>{results.overallPercent}%</span>
                 <span className="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-widest mt-1 md:mt-2">Overall Score</span>
               </div>
-              <div className="flex-1 bg-yellow-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-yellow-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
-                <span className="text-3xl md:text-5xl font-black text-yellow-600">{results.overallLabel}</span>
+              <div className="flex-1 bg-yellow-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-yellow-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm" style={{ backgroundColor: '#fefce8' }}>
+                <span className="text-3xl md:text-5xl font-black text-yellow-600" style={{ color: '#ca8a04' }}>{results.overallLabel}</span>
                 <span className="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-widest mt-1 md:mt-2">Final Archetype</span>
               </div>
-              <div className="flex-1 bg-blue-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-blue-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm">
-                <span className="text-3xl md:text-5xl font-black text-blue-600">{Object.keys(answers).length}/{QUESTIONS.length}</span>
+              <div className="flex-1 bg-blue-50 rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-8 border-b-4 md:border-b-8 border-blue-200 flex flex-col items-center justify-center transform hover:scale-102 transition-transform shadow-sm" style={{ backgroundColor: '#eff6ff' }}>
+                <span className="text-3xl md:text-5xl font-black text-blue-600" style={{ color: '#2563eb' }}>{Object.keys(answers).length}/{QUESTIONS.length}</span>
                 <span className="text-[9px] md:text-xs font-black text-slate-400 uppercase tracking-widest mt-1 md:mt-2">Focus Areas</span>
               </div>
             </div>
@@ -520,12 +531,12 @@ export default function App() {
                 {Object.entries(CATEGORIES).map(([catId, { title, subtitle }]) => {
                   const score = results.categoryScores[catId as Category];
                   const colors = {
-                    selfReflection: { bg: 'bg-pink-50', border: 'border-pink-200', text: 'text-pink-600' },
-                    selfAuthentic: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-600' },
-                    conflict: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-600' },
-                    friendship: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-600' },
-                    relationship: { bg: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-600' },
-                    spouse: { bg: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-600' },
+                    selfReflection: { bg: 'bg-pink-50', border: 'border-pink-200', text: 'text-pink-600', hex: '#db2777' },
+                    selfAuthentic: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-600', hex: '#ca8a04' },
+                    conflict: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-600', hex: '#2563eb' },
+                    friendship: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-600', hex: '#9333ea' },
+                    relationship: { bg: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-600', hex: '#e11d48' },
+                    spouse: { bg: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-600', hex: '#ea580c' },
                   }[catId as Category];
 
                   return (
@@ -535,10 +546,16 @@ export default function App() {
                           <h4 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter uppercase">{title}</h4>
                           <p className="text-slate-500 font-bold italic tracking-tight text-sm md:text-base">{subtitle}</p>
                         </div>
-                        <div className={cn("px-6 md:px-8 py-2 md:py-3 rounded-xl md:rounded-2xl font-black text-lg md:text-xl shadow-lg border-2 border-white text-center", 
-                          score.label === 'Excellent' ? 'bg-green-500 text-white' : 
-                          score.label === 'Good' ? 'bg-amber-500 text-white' : 'bg-rose-500 text-white'
-                        )}>
+                        <div 
+                          className={cn("px-6 md:px-8 py-2 md:py-3 rounded-xl md:rounded-2xl font-black text-lg md:text-xl shadow-lg border-2 border-white text-center", 
+                            score.label === 'Excellent' ? 'bg-green-500 text-white' : 
+                            score.label === 'Good' ? 'bg-amber-500 text-white' : 'bg-rose-500 text-white'
+                          )}
+                          style={{ 
+                            backgroundColor: score.label === 'Excellent' ? '#22c55e' : 
+                                            score.label === 'Good' ? '#f59e0b' : '#f43f5e' 
+                          }}
+                        >
                           {score.label} • {score.percent}%
                         </div>
                       </div>
@@ -565,9 +582,12 @@ export default function App() {
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                             {IDEAS[catId as Category].map((idea, idx) => (
                               <div key={idx} className="flex gap-3 md:gap-4 bg-white p-3 md:p-4 rounded-xl md:rounded-2xl shadow-sm border border-slate-100 group hover:border-pink-300 transition-all hover:translate-x-1">
-                                <span className={cn("flex-shrink-0 w-6 h-6 md:w-8 md:h-8 rounded-full text-white text-[10px] md:text-xs flex items-center justify-center font-black", 
-                                  idx < 5 ? colors.text.replace('text-', 'bg-') : 'bg-slate-300'
-                                )}>
+                                <span 
+                                  className={cn("flex-shrink-0 w-6 h-6 md:w-8 md:h-8 rounded-full text-white text-[10px] md:text-xs flex items-center justify-center font-black", 
+                                    idx >= 5 && "bg-slate-300"
+                                  )}
+                                  style={idx < 5 ? { backgroundColor: colors.hex } : (idx >= 5 ? { backgroundColor: '#cbd5e1' } : {})}
+                                >
                                   {idx + 1}
                                 </span>
                                 <span className="text-[11px] md:text-[13px] text-slate-700 font-bold leading-snug">{idea}</span>
@@ -654,6 +674,62 @@ export default function App() {
                   </h3>
                 </div>
 
+                {/* Welcome & Context Section */}
+                <div className="bg-white border-2 border-slate-100 rounded-[2rem] p-6 md:p-8 mb-8 text-slate-700 shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-pink-50 rounded-full -mr-12 -mt-12 opacity-50"></div>
+                  
+                  <div className="relative z-10">
+                    <h4 className="font-black text-pink-600 uppercase tracking-widest text-sm md:text-base mb-3 border-b-2 border-pink-100 pb-2 inline-block">Welcome to the Self - Awareness Assessment</h4>
+                    <p className="text-sm md:text-lg leading-relaxed mb-6 font-bold text-slate-600">
+                      This assessment aims to help you gain clarity about your thoughts, emotions, and actions related to your <span className="text-pink-600">Relationships</span>.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                      <div>
+                        <h5 className="font-black text-slate-400 uppercase tracking-[0.2em] text-[10px] mb-4">The Methodology</h5>
+                        <p className="text-sm font-medium leading-relaxed">
+                          Please answer the following questions as honestly as possible. For each question, select the answer that best reflects your thoughts, feelings, or behaviors. There are no right or wrong answers.
+                        </p>
+                      </div>
+                      <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 font-bold text-[11px] md:text-xs">
+                        <p className="uppercase tracking-widest text-slate-400 mb-2">Instructions</p>
+                        <p className="text-slate-600 mb-2">• Complete all sections for a full report.</p>
+                        <p className="text-slate-600 mb-2">• You can choose only one answer per question.</p>
+                        <p className="text-pink-600">• This assessment is for self awareness.</p>
+                      </div>
+                    </div>
+
+                    <h5 className="font-black text-slate-800 uppercase tracking-[0.3em] text-[10px] md:text-[11px] mb-6 text-center border-t border-slate-100 pt-6">5 Areas of Focus for a Fulfilling Life</h5>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {[
+                        'Self - Reflection Awareness',
+                        'Self - Authentic Awareness',
+                        'Conflicts Awareness',
+                        'Friendship Awareness',
+                        'Relationship Awareness'
+                      ].map((area, i) => (
+                        <div key={area} className="flex items-center gap-3 bg-pink-50/50 p-3 rounded-xl border border-pink-100/50 group hover:bg-pink-600 transition-all cursor-default">
+                          <span className="w-7 h-7 flex-shrink-0 bg-white rounded-lg flex items-center justify-center font-black text-pink-600 text-xs shadow-sm group-hover:scale-110 transition-transform">{i + 1}</span>
+                          <span className="text-[10px] md:text-[11px] font-black text-slate-600 uppercase tracking-tighter group-hover:text-white transition-colors">{area}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Instructions Section */}
+                <div className="bg-pink-50/50 border-2 border-pink-100 rounded-2xl p-6 mb-8 text-slate-700">
+                  <h4 className="font-black text-pink-600 uppercase tracking-widest text-sm mb-4">Instructions on How to Fill:</h4>
+                  <ul className="space-y-3 text-sm md:text-base font-medium list-decimal list-inside marker:text-pink-600 marker:font-black">
+                    <li>Please take a few minutes to fill out this survey. Every question is crafted keeping women challenges in mind.</li>
+                    <li>There are no right or wrong answers. Your genuine response will guide us in creating a valuable experience for you.</li>
+                    <li>Fields marked with an asterisk ( * ) are mandatory.</li>
+                    <li>Rest assured, your data is confidential and will only be used for the purpose of enhancing our 1:1 Consulting session.</li>
+                    <li>Once done, please hit the 'Submit' button at the end.</li>
+                  </ul>
+                  <p className="mt-4 font-black italic text-pink-600">Thank you for your time and insights!</p>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                   <div className="space-y-2 md:space-y-3">
                     <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Name *</label>
@@ -722,9 +798,9 @@ export default function App() {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] md:text-sm font-black md:font-semibold text-slate-400 md:text-slate-600 uppercase md:normal-case tracking-widest md:tracking-normal block ml-1">Which best describes you? *</label>
+                  <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest block ml-1">Which best describes you? *</label>
                   <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 md:gap-3">
-                    {['Homemaker', 'Homepreneur', 'Entrepreneur', 'Studying', 'Professional', 'Other'].map(desc => (
+                    {['Homemaker', 'Homepreneur', 'Entrepreneur', 'Studying Women', 'Professional Women', 'Other'].map(desc => (
                       <button
                         key={desc}
                         onClick={() => setPersonalInfo({ ...personalInfo, description: desc })}
@@ -740,6 +816,20 @@ export default function App() {
                     ))}
                   </div>
                 </div>
+
+                {personalInfo.description === 'Other' && (
+                  <div className="space-y-2">
+                    <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Please specify Other *</label>
+                    <input 
+                      type="text" 
+                      name="otherDescription"
+                      value={personalInfo.otherDescription}
+                      onChange={handlePersonalChange}
+                      className="w-full px-5 md:px-6 py-4 md:py-5 bg-pink-50/50 border-2 border-pink-100 rounded-xl md:rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all placeholder:text-slate-300 font-bold text-sm md:text-base"
+                      placeholder="Your occupation..."
+                    />
+                  </div>
+                )}
 
                 <div className="space-y-4">
                   <label className="text-sm font-semibold text-slate-600 block ml-1">Feme'Fusionz Membership Duration *</label>
@@ -778,17 +868,17 @@ export default function App() {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Motivation Catalyst *</label>
+                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">What motivated you to fill this self assessment form? (One Sentence) *</label>
                   <textarea 
                     value={motivationState.motivation}
                     onChange={(e) => setMotivationState({ ...motivationState, motivation: e.target.value })}
                     className="w-full px-6 py-5 bg-pink-50/50 border-2 border-pink-100 rounded-2xl focus:border-pink-500 focus:bg-white outline-none transition-all h-32 resize-none font-bold placeholder:text-slate-300"
-                    placeholder="What drives your growth today?"
+                    placeholder="Briefly share your motive..."
                   />
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">Top 3 Annual Targets *</label>
+                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">What are your top 3 goals for the next year? *</label>
                   <textarea 
                     value={motivationState.goals}
                     onChange={(e) => setMotivationState({ ...motivationState, goals: e.target.value })}
@@ -798,10 +888,10 @@ export default function App() {
                 </div>
 
                 <div className="space-y-6">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest block ml-1">Critical Roadblocks *</label>
+                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest block ml-1">What challenges do you face that you hope this assessment can help you? *</label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
-                      'Work-Life Balance', 'Self-Doubt/Fear', 'Stress/Burnout', 'Communication gaps', 'Health/Wellness', 'Relationships', 'Financial goals', 'Confidence', 'Time Management'
+                      'Balancing work and personal life', 'Overcoming self-doubt and fear', 'Managing stress and burnout', 'Improving communication skills', 'Achieving health and wellness goals', 'Building and maintaining relationships', 'Gaining financial independence', 'Enhancing self-confidence', 'Time management and productivity'
                     ].map(challenge => (
                       <label key={challenge} className="flex items-center gap-4 p-5 bg-white border-2 border-slate-100 rounded-2xl cursor-pointer hover:border-pink-300 transition-all group shadow-sm">
                         <input 
@@ -822,10 +912,10 @@ export default function App() {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-sm font-semibold text-slate-600 block ml-1">Learning Preference? *</label>
+                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-1">How do you prefer to KNOW/LEARN? *</label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
-                      'Videos', 'Articles', 'Webinars', 'Live sessions', 'Workshops', 'E-books', 'Podcasts', 'Interactive courses'
+                      'Videos', 'Articles', 'Webinars', 'Live sessions', 'Workshops', 'E-books or Downloadable PDFs', 'Audio Content (podcast)', 'Interactive courses (quizzes, assignments)', 'Other'
                     ].map(pref => (
                       <label key={pref} className="flex items-center gap-3 p-4 bg-white border-2 border-slate-100 rounded-xl cursor-pointer hover:border-primary/20 transition-all">
                         <input 
@@ -862,7 +952,10 @@ export default function App() {
                 </div>
 
                 <div className="space-y-4 md:space-y-10">
-                  <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest block text-center">Unassisted Capacity for Achievement? *</label>
+                  <div className="text-center">
+                    <label className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest block mb-2">how confident are you in achieving your goals without external guidance? *</label>
+                    <p className="text-[9px] text-slate-400 italic">On a scale of 1-5 (1 being not confident and 5 being very confident)</p>
+                  </div>
                   <div className="flex justify-center gap-3 md:gap-6">
                     {[1, 2, 3, 4, 5].map(val => (
                       <button
@@ -880,13 +973,13 @@ export default function App() {
                     ))}
                   </div>
                   <div className="flex justify-between w-full max-w-sm mx-auto text-[8px] md:text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] md:tracking-[0.3em]">
-                    <span>Minimum</span>
-                    <span>Absolute</span>
+                    <span>Not Confident</span>
+                    <span>Very Confident</span>
                   </div>
                 </div>
 
                 <div className="space-y-6">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest block ml-1">Ideal Interaction Frequency? *</label>
+                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest block ml-1 leading-relaxed">How often do you prefer community interactions (Accountability Meet-ups, Team Meet-ups etc.)? *</label>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     {['Daily', 'Weekly', 'Monthly', 'Rarely', 'Never'].map(freq => (
                       <button
