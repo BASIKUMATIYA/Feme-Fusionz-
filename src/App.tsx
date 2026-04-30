@@ -257,19 +257,22 @@ const ProgressBar = ({ currentStep, totalSteps }: { currentStep: number; totalSt
 };
 
 const Header = () => (
-  <header className="bg-white border-b-4 border-pink-500 py-4 md:py-6 px-4 md:px-12 shadow-sm text-center shrink-0 w-full z-20">
-    <div className="max-w-4xl mx-auto flex flex-col items-center">
+  <header className="bg-white border-b-4 border-pink-500 py-4 md:py-6 px-4 md:px-12 shadow-sm shrink-0 w-full z-20">
+    <div className="max-w-6xl mx-auto flex flex-row items-center gap-4 md:gap-8">
       <img 
-        src="https://i.ibb.co/VcZ1Ftqs/femefusionz-logo.png" 
+        src="https://i.ibb.co/Xrvs67Qp/logo.png" 
         alt="Feme'Fusionz Logo" 
-        className="w-12 h-12 md:w-16 md:h-16 object-contain mb-3"
+        className="w-20 h-20 md:w-36 md:h-36 object-contain"
       />
-      <h1 className="text-xl md:text-3xl font-black tracking-tight text-pink-600 uppercase">
-        SELF AWARENESS ASSESSMENT TEST
-      </h1>
-      <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-1">
-        An eye opening survey to know yourself better and depth from 360°
-      </p>
+      <div className="flex flex-col text-left">
+        <h1 className="text-xl md:text-3xl font-black tracking-tight text-pink-600 uppercase leading-tight">
+          SELF AWARENESS ASSESSMENT TEST
+        </h1>
+        <p className="text-[9px] md:text-[11px] font-black text-pink-600 uppercase tracking-[0.2em] font-serif italic mb-1">For Women, To Women</p>
+        <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-1">
+          An eye opening survey to know yourself better and depth from 360°
+        </p>
+      </div>
     </div>
   </header>
 );
@@ -279,11 +282,12 @@ const Footer = () => (
     <div className="text-center md:text-left flex flex-col gap-1">
       <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
         <img 
-          src="https://i.ibb.co/VcZ1Ftqs/femefusionz-logo.png" 
+          src="https://i.ibb.co/Xrvs67Qp/logo.png" 
           alt="Feme'Fusionz Logo" 
-          className="w-8 h-8 md:w-10 md:h-10 object-contain bg-white rounded-full p-1 border-2 border-pink-500"
+          className="w-10 h-10 md:w-12 md:h-12 object-contain"
         />
         <p className="text-xl md:text-2xl font-bold tracking-tighter italic text-white">Feme'Fusionz</p>
+        <p className="text-[8px] md:text-[10px] font-black text-pink-400 uppercase tracking-[0.2em] font-serif italic">For Women, To Women</p>
       </div>
       <p className="text-[10px] md:text-[12px] text-slate-400 uppercase tracking-widest font-bold">
         ©2026 All Rights Reserved 
@@ -311,7 +315,7 @@ const Footer = () => (
         href="https://www.instagram.com/femefusionz?utm_source=qr&igsh=MXdiY201ajJzM3N6Ng==" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+        className="w-12 h-12 md:w-14 md:h-14 bg-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
       >
         <Instagram size={28} md:size={32} stroke="white" strokeWidth={2.5} className="w-7 h-7 md:w-8 md:h-8" />
       </a>
@@ -481,11 +485,14 @@ export default function App() {
             <div className="w-full text-center z-10 mb-8 md:mb-10">
               <div className="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
                 <img 
-                  src="https://i.ibb.co/VcZ1Ftqs/femefusionz-logo.png" 
+                  src="https://i.ibb.co/Xrvs67Qp/logo.png" 
                   alt="Feme'Fusionz Logo" 
-                  className="w-10 h-10 md:w-16 md:h-16 object-contain bg-white rounded-full p-1 border-2 border-pink-500"
+                  className="w-12 h-12 md:w-16 md:h-16 object-contain"
                 />
-                <h1 className="text-2xl md:text-4xl font-black text-pink-600 tracking-tight">Feme'Fusionz</h1>
+                <div className="flex flex-col text-left">
+                  <h1 className="text-2xl md:text-4xl font-black text-pink-600 tracking-tight leading-none">Feme'Fusionz</h1>
+                  <p className="text-[10px] md:text-xs font-black text-pink-600 uppercase tracking-[0.2em] font-serif italic">For Women, To Women</p>
+                </div>
               </div>
               <span 
                 className="px-4 md:px-6 py-1.5 md:py-2 bg-pink-600 text-white rounded-full text-[10px] md:text-sm font-black uppercase tracking-widest mb-4 md:mb-6 inline-block shadow-lg"
@@ -620,7 +627,7 @@ export default function App() {
               <div className="py-12 border-t-2 border-slate-100 flex flex-col items-center justify-center text-center">
                 <p className="text-slate-400 font-black text-xs uppercase tracking-widest mb-4">Export format: Single continuous page</p>
                 <div className="flex items-center gap-3">
-                  <img src="https://i.ibb.co/VcZ1Ftqs/femefusionz-logo.png" alt="FF" className="w-8 h-8 opacity-50 grayscale" />
+                  <img src="https://i.ibb.co/Xrvs67Qp/logo.png" alt="FF" className="w-10 h-10 md:w-12 md:h-12 opacity-50 grayscale" />
                   <p className="text-slate-300 text-[10px] font-black uppercase">Feme'Fusionz Official Assessment 2026</p>
                 </div>
               </div>
@@ -655,6 +662,14 @@ export default function App() {
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-pink-200 rounded-full opacity-30 pointer-events-none"></div>
           <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-yellow-200 rounded-full opacity-40 pointer-events-none"></div>
 
+          <div className="w-full relative z-10 flex flex-col items-center mb-6 md:mb-8">
+            <img 
+              src="https://i.ibb.co/Xrvs67Qp/logo.png" 
+              alt="Feme'Fusionz Logo" 
+              className="w-14 h-14 md:w-20 md:h-20 object-contain mb-2"
+            />
+            <p className="text-[9px] md:text-[11px] font-black text-pink-600 uppercase tracking-[0.3em] font-serif italic">For Women, To Women</p>
+          </div>
           <div className="w-full relative z-10">
             <ProgressBar currentStep={step} totalSteps={7} />
           </div>
@@ -1143,7 +1158,7 @@ export default function App() {
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
             className="w-16 h-16 border-4 border-slate-100 border-t-primary rounded-full mb-6"
           />
-          <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+          <h2 className="text-2xl font-black text-pink-600 uppercase tracking-tighter">
             Synthesizing Your Results...
           </h2>
           <p className="text-slate-400 mt-2">Crafting your personalized self-awareness roadmap.</p>
