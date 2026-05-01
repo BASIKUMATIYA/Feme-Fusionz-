@@ -268,7 +268,7 @@ const Header = () => (
         <h1 className="text-xl md:text-3xl font-black tracking-tight text-pink-600 uppercase leading-tight">
           SELF AWARENESS ASSESSMENT TEST
         </h1>
-        <p className="text-[9px] md:text-[11px] font-black text-pink-600 uppercase tracking-[0.2em] font-serif italic mb-1">For Women, To Women</p>
+        <p className="text-[9px] md:text-[11px] font-black text-pink-600 uppercase tracking-[0.2em] font-serif italic mb-1">By Women, To Women</p>
         <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-1">
           An eye opening survey to know yourself better and depth from 360°
         </p>
@@ -287,7 +287,7 @@ const Footer = () => (
           className="w-10 h-10 md:w-12 md:h-12 object-contain"
         />
         <p className="text-xl md:text-2xl font-bold tracking-tighter italic text-white">Feme'Fusionz</p>
-        <p className="text-[8px] md:text-[10px] font-black text-pink-400 uppercase tracking-[0.2em] font-serif italic">For Women, To Women</p>
+        <p className="text-[8px] md:text-[10px] font-black text-pink-400 uppercase tracking-[0.2em] font-serif italic">By Women, To Women</p>
       </div>
       <p className="text-[10px] md:text-[12px] text-slate-400 uppercase tracking-widest font-bold">
         ©2026 All Rights Reserved 
@@ -398,9 +398,53 @@ export default function App() {
     window.scrollTo(0, 0);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setIsGenerating(true);
-    // Simulate some logic delay
+    
+    // Calculate final results to include in spreadsheet
+    const finalResults = calculateResult();
+    
+    // Prepare complete data payload for Google Sheets
+    const payload = {
+      timestamp: new Date().toLocaleString(),
+      ...personalInfo,
+      motivation: motivationState.motivation,
+      goals: motivationState.goals,
+      challenges: motivationState.challenges.join(', ') + (motivationState.otherChallenge ? `, ${motivationState.otherChallenge}` : ''),
+      learningPreferences: motivationState.learningPreferences.join(', ') + (motivationState.otherLearning ? `, ${motivationState.otherLearning}` : ''),
+      confidenceLevel: communityState.confidenceLevel,
+      communityPreference: communityState.communityPreference,
+      feedback: communityState.feedback,
+      interestAdvanced: communityState.interestAdvanced,
+      overallPercent: `${finalResults.overallPercent}%`,
+      overallLabel: finalResults.overallLabel,
+      // Aggregating answer points
+      ...Object.keys(answers).reduce((acc, qId) => {
+        acc[qId] = answers[qId];
+        return acc;
+      }, {} as Record<string, number>)
+    };
+
+    // Attempt to sync with Google Sheets if URL is provided
+    const sheetsUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL;
+    if (sheetsUrl) {
+      try {
+        await fetch(sheetsUrl, {
+          method: 'POST',
+          mode: 'no-cors', // Apps Script requires no-cors if not using specialized headers
+          cache: 'no-cache',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload)
+        });
+        console.log('Successfully synced with Google Sheets');
+      } catch (err) {
+        console.error('Failed to sync with Google Sheets:', err);
+      }
+    }
+
+    // Simulate synthesis delay
     setTimeout(() => {
       setIsReportVisible(true);
       setIsGenerating(false);
@@ -491,7 +535,7 @@ export default function App() {
                 />
                 <div className="flex flex-col text-left">
                   <h1 className="text-2xl md:text-4xl font-black text-pink-600 tracking-tight leading-none">Feme'Fusionz</h1>
-                  <p className="text-[10px] md:text-xs font-black text-pink-600 uppercase tracking-[0.2em] font-serif italic">For Women, To Women</p>
+                  <p className="text-[10px] md:text-xs font-black text-pink-600 uppercase tracking-[0.2em] font-serif italic">By Women, To Women</p>
                 </div>
               </div>
               <span 
@@ -668,7 +712,7 @@ export default function App() {
               alt="Feme'Fusionz Logo" 
               className="w-14 h-14 md:w-20 md:h-20 object-contain mb-2"
             />
-            <p className="text-[9px] md:text-[11px] font-black text-pink-600 uppercase tracking-[0.3em] font-serif italic">For Women, To Women</p>
+            <p className="text-[9px] md:text-[11px] font-black text-pink-600 uppercase tracking-[0.3em] font-serif italic">By Women, To Women</p>
           </div>
           <div className="w-full relative z-10">
             <ProgressBar currentStep={step} totalSteps={7} />
